@@ -6,6 +6,7 @@ require('dotenv').config({
         : path.resolve('.env')
 })
 
+require('./database');
 
 const express = require('express');
 
