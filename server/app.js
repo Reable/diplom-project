@@ -1,6 +1,11 @@
-require('dotenv').config({
-    path: process.env.PRODACTION ? '.env.production' : '.env'
+const path = require('path');
+require('dotenv').config({ 
+    path: 
+        Boolean(process.env.PRODUCTION) 
+        ? path.resolve('.env.production') 
+        : path.resolve('.env')
 })
+
 
 const express = require('express');
 
@@ -13,12 +18,12 @@ app.use('/api', require('./routes'));
 app.use(require('./utils/errorsHandler'));
 
 async function bootstrap() {
-    const PORT = process.env.PORT || 3000;
+    const PORT = process.env.PORT
     app.listen(PORT, (error) => {
         if (error) {
             console.log(error);
         }
-        console.log('Server is running')
+        console.log('Server is running on PORT ', PORT)
     })
 }
 

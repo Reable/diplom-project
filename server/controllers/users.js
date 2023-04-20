@@ -8,6 +8,6 @@ module.exports = {
             throw ApiError.BadRequest('Testing error')
         }
         
-        return 'hello'
+        return data
     }
 }
