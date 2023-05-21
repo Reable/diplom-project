@@ -7,9 +7,14 @@ const Users = sequelize.define('users', {
         autoIncrement: true,
         primaryKey: true
     },
-    role: {
+    name: {
         type: DataTypes.STRING,
-
+    },
+    phone: {
+        type: DataTypes.STRING,
+    },
+    password: {
+        type: DataTypes.STRING
     }
 }, {
     sequelize,

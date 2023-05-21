@@ -10,6 +10,26 @@ class ApiError extends Error {
 
         return this
     }
+
+    Validation(message = 'Error validation' || [], status = 422){
+        if(Array.isArray(message)){
+            const errors = [];
+
+            for( let err of message){
+                errors.push({
+                    message: err.message,
+                    key: err.context.key
+                })
+            }
+            this.message = errors;
+        } else {
+            this.message = message;
+        }
+
+        this.status = status
+
+        return this
+    }
 }
 
 module.exports = new ApiError();

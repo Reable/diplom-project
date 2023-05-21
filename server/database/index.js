@@ -20,7 +20,5 @@ sequelize.authenticate()
         console.error('Unable to connect to the database:', err);
     });
 
-//Migrations
-process.env.DB_MIGRATIONS && require('../migrations');
 
 module.exports = sequelize;

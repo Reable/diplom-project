@@ -1,4 +1,5 @@
 module.exports = (error, req, res, next) => {
+    console.log(error.message)
     res.status(error.status)
         .json(
             process.env.PRODACTION

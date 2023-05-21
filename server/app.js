@@ -8,6 +8,9 @@ require('dotenv').config({
 
 require('./database');
 
+//Migrations
+process.env.DB_MIGRATIONS && require('./migrations');
+
 const express = require('express');
 
 const app = express();
