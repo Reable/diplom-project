@@ -1,0 +1,89 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+@layer{
+    @font-face {
+        font-family: "Montserat-ExtraBold";
+        src: url("../fonts/Montserrat-ExtraBold.ttf");
+    }
+    @font-face {
+        font-family: "Montserat-Bold";
+        src: url("../fonts/Montserrat-Bold.ttf");
+    }
+    @font-face {
+        font-family: "Montserat-Medium";
+        src: url("../fonts/Montserrat-Medium.ttf");
+    }
+    @font-face {
+        font-family: "Montserat-Regular";
+        src: url("../fonts/Montserrat-Regular.ttf");
+    }
+    @font-face {
+        font-family: "Montserat-SemiBold";
+        src: url("../fonts/Montserrat-SemiBold.ttf");
+    }
+}
+
+.container{
+    max-width: 1200px;
+    padding-left: 20px;
+    padding-right: 20px;
+    margin: 0 auto;
+}
+
+.font-extra{
+    font-family: "Montserat-ExtraBold";
+}
+.font-bold{
+    font-family: "Montserat-Bold";
+}
+.font-medium{
+    font-family: "Montserat-Medium";
+}
+.font-reg{
+    font-family: "Montserat-Regular";
+}
+.font-semi{
+    font-family: "Montserat-SemiBold";
+}
+
+.bg-body{
+    background-color: #ffff;
+    /* background-color: #fdf1e5; */
+    /* background-color: #4D86F7; */
+}
+
+.color-main{
+    color: black;
+}
+.color-contrast{
+    color: #4D86F7;
+}
+.bg-contrast{
+    background-color: #4D86F7;
+}
+.color-contrast-2{
+    color: #7451F8;
+}
+
+.shadow-circle{
+    box-shadow: 0 0 10px rgb(224, 224, 224);
+}
+
+.horizontal-media-scroller {
+    display: grid;
+    grid-auto-flow: column;
+    grid-gap: 40px;
+
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+    scroll-snap-type: x mandatory;
+    scroll-padding-inline: 10px;
+}
+
+.horizontal-media-scroller a,
+.horizontal-media-scroller div{
+        scroll-snap-align: start;
+}
