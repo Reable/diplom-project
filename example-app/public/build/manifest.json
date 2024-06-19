@@ -1,0 +1,33 @@
+{
+  "resources/css/app.css": {
+    "file": "assets/app-XVvWOyRP.css",
+    "src": "resources/css/app.css",
+    "isEntry": true
+  },
+  "resources/fonts/Montserrat-Bold.ttf": {
+    "file": "assets/Montserrat-Bold-DEcR8bPr.ttf",
+    "src": "resources/fonts/Montserrat-Bold.ttf"
+  },
+  "resources/fonts/Montserrat-ExtraBold.ttf": {
+    "file": "assets/Montserrat-ExtraBold-n0CIQdUk.ttf",
+    "src": "resources/fonts/Montserrat-ExtraBold.ttf"
+  },
+  "resources/fonts/Montserrat-Medium.ttf": {
+    "file": "assets/Montserrat-Medium-DZ4qtIu-.ttf",
+    "src": "resources/fonts/Montserrat-Medium.ttf"
+  },
+  "resources/fonts/Montserrat-Regular.ttf": {
+    "file": "assets/Montserrat-Regular-BQsUpcHj.ttf",
+    "src": "resources/fonts/Montserrat-Regular.ttf"
+  },
+  "resources/fonts/Montserrat-SemiBold.ttf": {
+    "file": "assets/Montserrat-SemiBold-B-lLb63I.ttf",
+    "src": "resources/fonts/Montserrat-SemiBold.ttf"
+  },
+  "resources/js/app.js": {
+    "file": "assets/app-l0sNRNKZ.js",
+    "name": "app",
+    "src": "resources/js/app.js",
+    "isEntry": true
+  }
+}
