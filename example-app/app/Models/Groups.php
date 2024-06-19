@@ -9,9 +9,5 @@ class Groups extends Model
 {
     use HasFactory;
 
-    protected $fillable = ["code", "title", "training_session_ids"];
-
-    protected $casts = [
-        "training_session_ids" => "array"
-    ];
+    protected $fillable = ["code", "title", "form_education", "path_url"];
 }

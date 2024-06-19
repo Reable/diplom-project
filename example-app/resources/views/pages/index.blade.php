@@ -1,5 +1,7 @@
 @extends('layouts.app')
 
+@section("title", "Главная страница")
+
 @section("app")
     <div class="main">
         <div class="flex justify-between container py-16 sm:py-20">
@@ -12,42 +14,42 @@
                 </p>
             </div>
             <div class="hidden lg:block w-[50%] xl:w-[45%]">
-                <img src="{{asset("assets/images/main/main_image.png")}}" class="w-full h-full" alt="">
+                <img src="{{asset("assets/images/main/portfolio_image.png")}}" class="w-full h-full" alt="">
             </div>
         </div>
-        @if(isset($works) && count($works))
+        @if(isset($groups) && count($groups))
             <div class="container pb-20">
-                <h2 class="font-extra text-[20px] sm:text-[30px] lg:text-[40px] color-contrast uppercase">Методические работы</h2>
-                <div class="flex justify-between mt-10 sm:mt-14 horizontal-media-scroller pt-3 pb-7 px-5 lg:px-0 lg:gap-3">
-                    @foreach ($works as $work)
-                        <a href="" class="w-[200px] sm:w-[250px] lg:w-[270px] px-3 sm:p-7 rounded-[10px] shadow-circle bg-[#fff] flex flex-col items-center justify-between gap-10 transition-all hover:scale-[1.02] text-center lg:text-left">
-                            <img src="{{asset("assets/images/main/methodical_work.svg")}}" class="w-[100px] lg:w-[150px]" alt="">
-                            <p class="font-semi text-[14px] lg:text-[16px] color-contrast">{{ $work['title'] }}</p>
+                <h2 class="font-extra text-[20px] sm:text-[30px] lg:text-[40px] color-contrast uppercase">Учебные материалы</h2>
+                <div class="flex justify-between mt-10 sm:mt-14 horizontal-media-scroller pt-3 pb-7 px-10 lg:px-0 lg:gap-3">
+                    @foreach ($groups as $group)
+                        <a href="{{route("groups_training_sessions_page", $group["id"])}}" class="mx-2 w-[200px] sm:w-[250px] lg:w-[250px] p-3 sm:p-7 rounded-[10px] shadow-circle bg-[#fff] flex flex-col items-center justify-between gap-10 transition-all hover:scale-[1.02] text-center lg:text-left">
+                            <img src="{{asset("storage/".$group["path_url"])}}" class="w-full h-[110px] lg:w-full lg:h-[130px] rounded-[10px]" alt="">
+                            <p class="font-semi text-[14px] lg:text-[16px] color-contrast">{{ $group['title'] }}</p>
                         </a>
                     @endforeach
                 </div>
                 <div class="flex justify-end mt-10">
-                    <a href="" class="font-semi text-[14px] sm:text-[16px] color-contrast">Подробнее</a>
+                    <a href="{{ route("groups_page") }}" class="font-semi text-[14px] sm:text-[16px] color-contrast">Подробнее</a>
                 </div>
             </div>
         @endif
         @if(isset($photos) && count($photos))
             <div class="container pb-20">
                 <h2 class="font-extra text-[20px] sm:text-[30px] lg:text-[40px] color-contrast uppercase">Фотогалерея</h2>
-                <div class="flex justify-between mt-10 sm:mt-14 lg:flex-wrap lg:gap-10 gap-10 snap-mandatory overflow-x-auto">
+                <div class="flex justify-between mt-10 sm:mt-14 lg:flex-wrap lg:gap-10 gap-10 snap-mandatory overflow-x-auto pb-10">
                     @foreach($photos as $photo)
                         <img src="{{asset("storage/$photo")}}" loading="lazy" alt="" class="w-[250px] rounded-[10px] lg:w-[30%]">
                     @endforeach
                 </div>
                 <div class="flex justify-end mt-10">
-                    <a href="" class="font-semi text-[14px] sm:text-[16px] color-contrast">Подробнее</a>
+                    <a href="{{ route("albums_page") }}" class="font-semi text-[14px] sm:text-[16px] color-contrast">Подробнее</a>
                 </div>
             </div>
         @endif
         @if(isset($certificates) && count($certificates))
             <div class="container pb-20">
                 <h2 class="font-extra text-[20px] sm:text-[30px] lg:text-[40px] color-contrast uppercase">Достижения</h2>
-                <div class="mt-10 sm:mt-14 horizontal-media-scroller p-5">
+                <div class="mt-10 sm:mt-14 lg:grid-cols-4 horizontal-media-scroller p-5">
                     @foreach($certificates as $certificate)
                         <div class="w-[240px] px-7 py-10 rounded-[10px] shadow-circle bg-[#fff] flex flex-col items-center justify-between gap-10">
                             <img src="{{asset("storage/" . $certificate["path_url"])}}" class="w-[100px] sm:w-[150px]" alt="">
@@ -56,7 +58,7 @@
                     @endforeach
                 </div>
                 <div class="flex justify-end mt-10">
-                    <a href="" class="font-semi text-[14px] sm:text-[16px] color-contrast">Подробнее</a>
+                    <a href="{{ route("certificates_page") }}" class="font-semi text-[14px] sm:text-[16px] color-contrast">Подробнее</a>
                 </div>
             </div>
         @endif

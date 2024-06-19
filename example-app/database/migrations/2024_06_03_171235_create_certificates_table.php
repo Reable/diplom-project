@@ -14,8 +14,8 @@ return new class extends Migration
         Schema::create('certificates', function (Blueprint $table) {
             $table->id();
 
-            $table->string("title");      // название сертификата
-            $table->text("path_url");     // путь к сертификату
+            $table->string("title");                                            // название сертификата
+            $table->text("path_url");                                           // путь к сертификату
 
             $table->timestamps();
         });

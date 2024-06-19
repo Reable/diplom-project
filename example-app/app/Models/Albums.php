@@ -9,5 +9,5 @@ class Albums extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['title', 'description', 'show'];
+    protected $fillable = ['title', 'description', 'path_url', 'show'];
 }

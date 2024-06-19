@@ -9,6 +9,7 @@ use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
 
+use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Checkbox;
 use Filament\Forms\Components\Tabs;
@@ -40,6 +41,12 @@ class AlbumsResource extends Resource
                             ->label("Описание для альбома")
                             ->helperText('Здесь вы можете написать описание для данного альбома')
                             ->default(""),
+                        FileUpload::make('path_url')
+                            ->label("Выберите обложку")
+                            ->helperText("Здесь вы можете выбрать обложку для данного альбома")
+                            ->image()
+                            ->directory("albums")
+                            ->required(),
                         Checkbox::make('show')
                             ->label("Показывать альбом?")
                             ->helperText('Желаете ли вы отображать этот альбом?')

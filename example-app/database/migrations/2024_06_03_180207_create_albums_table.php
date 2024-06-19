@@ -14,9 +14,10 @@ return new class extends Migration
         Schema::create('albums', function (Blueprint $table) {
             $table->id();
 
-            $table->string("title");                        // название альбома
-            $table->string("description")->nullable();      // описание альбома
-            $table->boolean("show");                        // показывать альбом? (true/false)
+            $table->string("title");                                    // название альбома
+            $table->string("description")->nullable();                  // описание альбома
+            $table->text("path_url");                                   // обложка альбома
+            $table->boolean("show");                                    // показывать альбом? (true/false)
 
             $table->timestamps();
         });

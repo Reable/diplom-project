@@ -23,36 +23,36 @@ class TheoreticalMaterialsResource extends Resource
 
     protected static ?string $navigationIcon = 'heroicon-o-academic-cap';
     protected static ?string $label = "Теоритические материалы ";
-    protected static ?string $navigationGroup = "Методические работы";
+    protected static ?string $navigationGroup = "Учебные материалы";
 
     public static function form(Form $form): Form
     {
         return $form
             ->schema([
                 Tabs::make()->tabs([
-                    Tabs\Tab::make("Добавление конспекта")->schema([
-                        Select::make('group_id')
-                            ->searchable()
-                            ->label("Выберите специальность")
-                            ->helperText('Здесь необходимо выбрать специальность которой будет добавлен конспект')
-                            ->options(function(){
-                                return Groups::all()->pluck('title', 'id');
-                            })
-                            ->required(),
+                    Tabs\Tab::make("Добавление теоритического материала")->schema([
                         Select::make('training_session_id')
                             ->searchable()
                             ->label("Выберите учебную дисциплину")
                             ->helperText('Здесь необходимо выбрать дисциплину в которую будет добавлен новый конспект')
                             ->options(function(){
-                                return TrainingSessions::all()->pluck('title', 'id');
+                                $sessions = TrainingSessions::all();
+                                $data = [];
+                                foreach($sessions as $session){
+                                    $group =  Groups::find($session["group_id"]);
+                                    $form_education = $group["form_education"] == 1 ? "Очная" : "Заочная";
+                                    $key = $session["title"]." - " . $session["group_title"] . " - " . $form_education;
+                                    $data[$session["id"]] = $key;
+                                }
+                                return $data;
                             })
                             ->required(),
                         TextInput::make('title')
-                            ->label("Добавьте название для материала")
+                            ->label("Добавьте название для теоритического материала")
                             ->helperText('Здесь необходимо написать название для теоритического материала')
                             ->required(),
                         FileUpload::make('path_url')
-                            ->label("Выберите конспект для загрузки")
+                            ->label("Выберите файл для загрузки")
                             ->directory("theoretical_materials")
                             ->required(),
 
@@ -65,10 +65,9 @@ class TheoreticalMaterialsResource extends Resource
     {
         return $table
             ->columns([
-                TextColumn::make('id')->label("Номер уч. материала"),
-                TextColumn::make('group_id')->label("Номер специальности"),
+                TextColumn::make('id')->label("Номер учебного материала"),
                 TextColumn::make('training_session_id')->label("Номер дисциплины"),
-                TextColumn::make('title')->label("Название конспекта"),
+                TextColumn::make('title')->label("Название теоритического материала"),
             ])
             ->actions([
                 Tables\Actions\EditAction::make()->label("Редактировать")->icon('heroicon-o-pencil'),

@@ -14,10 +14,10 @@ return new class extends Migration
         Schema::create('theoretical_materials', function (Blueprint $table) {
             $table->id();
 
-            $table->integer("group_id");                // номер специальности
-            $table->integer("training_session_id");     // номер предмета
-            $table->string("title");                //название конспекта
-            $table->text("path_url");               //путь до файла
+            $table->integer("training_session_id");                                     // номер предмета
+            $table->string("title");                                                    //название конспекта
+            $table->text("path_url");                                                   //путь до файла
+            $table->integer("count_downloads")->default(0);                             //количество скачиваний
 
             $table->timestamps();
         });

@@ -13,13 +13,13 @@ class MainPage extends Model
 
     protected $fillable = [
         'main_info', 'main_image',
-        'methodical_works_show', 'methodical_works_ids',
+        'groups_show', 'groups_ids',
         'photo_gallery_show', 'photo_gallery_paths',
         'certificates_show', 'certificates_ids',
     ];
 
     protected $casts = [
-        'methodical_works_ids' => 'array',
+        'groups_ids' => 'array',
         'photo_gallery_paths' => 'array',
         'certificates_ids' => 'array',
     ];

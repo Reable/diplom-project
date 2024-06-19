@@ -16,7 +16,8 @@ return new class extends Migration
 
             $table->string("code");                                                 // код специальности
             $table->string("title");                                                // название специальности
-            $table->json("training_session_ids")->nullable();        // список предметов
+            $table->integer("form_education");                                      // форма обучения
+            $table->text("path_url");                                            // фотография
             
             $table->timestamps();
         });

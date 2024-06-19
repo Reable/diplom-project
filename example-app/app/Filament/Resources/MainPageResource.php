@@ -4,6 +4,7 @@ namespace App\Filament\Resources;
 
 use App\Filament\Resources\MainPageResource\Pages;
 use App\Models\Certificates;
+use App\Models\Groups;
 use App\Models\MainPage;
 use App\Models\MethodicalWorks;
 use App\Models\PhotoGallery;
@@ -31,13 +32,13 @@ class MainPageResource extends Resource
             ->schema([
                 Tabs::make()->tabs([
                     Tabs\Tab::make("Добавление конспекта")->schema([
-                        Select::make('methodical_works_ids')
+                        Select::make('groups_ids')
                             ->multiple()
                             ->searchable()
-                            ->label("Методические материалы")
-                            ->helperText('Выберите методический материал для главной страницы')
+                            ->label("Учебные материалы")
+                            ->helperText('Выберите группы для главной страницы')
                             ->options(function(){
-                                return MethodicalWorks::where("show", 1)->get()->pluck('title', 'id');
+                                return Groups::all()->pluck('title', 'id');
                             }),
                         Select::make('photo_gallery_paths')
                             ->multiple()
@@ -65,9 +66,8 @@ class MainPageResource extends Resource
     {
         return $table
             ->columns([
-                TextColumn::make('methodical_works_ids'),
-                TextColumn::make('photo_gallery_ids'),
-                TextColumn::make('certificates_ids'),
+                TextColumn::make('groups_ids')->label("Номера учебных материалов"),
+                TextColumn::make('certificates_ids')->label("Номера сертификатов"),
             ])
             ->actions([
                 Tables\Actions\EditAction::make()->label("Редактировать страницу")->icon('heroicon-o-pencil'),

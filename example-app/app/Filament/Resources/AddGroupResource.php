@@ -5,6 +5,7 @@ namespace App\Filament\Resources;
 use App\Filament\Resources\AddGroupResource\Pages;
 use App\Models\Groups;
 use App\Models\TrainingSessions;
+use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
@@ -13,6 +14,7 @@ use Filament\Tables\Table;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\Tabs;
+use Filament\Tables\Columns\SelectColumn;
 use Filament\Tables\Columns\TextColumn;
 
 class AddGroupResource extends Resource
@@ -21,7 +23,7 @@ class AddGroupResource extends Resource
 
     protected static ?string $navigationIcon = 'heroicon-o-academic-cap';
     protected static ?string $label = "Специальности ";
-    protected static ?string $navigationGroup = "Методические работы";
+    protected static ?string $navigationGroup = "Учебные материалы";
 
     public static function form(Form $form): Form
     {
@@ -39,14 +41,18 @@ class AddGroupResource extends Resource
                             ->label("Введите название направления обучения")
                             ->helperText('Здесь необходимо написать профессию или специальность')
                             ->required(),
-                        Select::make("training_session_ids")
-                            ->multiple()
-                            ->searchable()
-                            ->label("Выберите учебные дисциплины")
-                            ->helperText("Выберите из списка какие учебные дисциплины будут доступны по данному направлению")
-                            ->options(function(){
-                                return TrainingSessions::all()->pluck('title', 'id');
-                            }),
+                        Select::make("form_education")
+                            ->label("Выберите форму обучения")
+                            ->options([
+                                1 => "Очная",
+                                2 => "Заочная"
+                            ])
+                            ->required()
+                            ->default(1),
+                        FileUpload::make('path_url')
+                            ->label("Выберите фотографию для специальности")
+                            ->directory("groups")
+                            ->required(),
                     ])
                 ])
             ]);
@@ -59,7 +65,13 @@ class AddGroupResource extends Resource
                 TextColumn::make("id")->label("Номер специальности"),
                 TextColumn::make("code")->label("Код направления"),
                 TextColumn::make("title")->label("Названия направления"),
-                TextColumn::make("training_session_ids")->label("Номера учебных дисциплин"),
+                
+                SelectColumn::make("form_education")
+                ->label("Форма обучения")
+                ->options([
+                    1  =>  "Очная",
+                    2   =>  "Заочная",
+                ])
             ])
             ->actions([
                 Tables\Actions\EditAction::make()->label("Редактировать")->icon('heroicon-o-pencil'),

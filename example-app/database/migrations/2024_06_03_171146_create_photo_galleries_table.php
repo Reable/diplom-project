@@ -14,9 +14,9 @@ return new class extends Migration
         Schema::create('photo_galleries', function (Blueprint $table) {
             $table->id();
 
-            $table->string("title")->nullable();                // id альбома
-            $table->integer("album_id");                // id альбома
-            $table->text("path_url");               // путь к фотографии
+            $table->string("title")->nullable();                                    // название для фотографии
+            $table->integer("album_id");                                            // id альбома
+            $table->text("path_url");                                               // путь к фотографии
 
             $table->timestamps();
         });

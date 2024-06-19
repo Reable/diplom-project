@@ -9,5 +9,5 @@ class TheoreticalMaterials extends Model
 {
     use HasFactory;
 
-    protected $fillable = ["group_id", "training_session_id", "title", "path_url"];
+    protected $fillable = ["training_session_id", "title", "path_url"];
 }

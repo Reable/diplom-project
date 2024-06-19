@@ -9,5 +9,5 @@ class TrainingSessions extends Model
 {
     use HasFactory;
 
-    protected $fillable = ["title"];
+    protected $fillable = ["title", "group_title", "group_id"];
 }
