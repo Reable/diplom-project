@@ -22,7 +22,7 @@ class TheoreticalMaterialsResource extends Resource
     protected static ?string $model = TheoreticalMaterials::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-academic-cap';
-    protected static ?string $label = "Теоритические материалы ";
+    protected static ?string $label = "Теоретические материалы ";
     protected static ?string $navigationGroup = "Учебные материалы";
 
     public static function form(Form $form): Form

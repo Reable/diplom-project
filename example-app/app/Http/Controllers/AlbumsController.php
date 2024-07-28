@@ -9,7 +9,7 @@ use Illuminate\Http\Request;
 class AlbumsController extends Controller
 {
     public function albums_page(){
-        $albums = Albums::where("show", 1)->get();
+        $albums = Albums::where("show", 1)->orderBy("id", "DESC")->get();
         return view("pages.albums.index", compact("albums"));
     }
 

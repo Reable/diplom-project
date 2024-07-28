@@ -19,7 +19,7 @@
                 {{ $session["title"] }}
             </a> |
             <a href="{{ route("groups_materials_select_page", [$group["id"], $session["id"]] )}}">
-                Теоритические материалы
+                Теоретические материалы
             </a>
         </h3>
         <p class="w-full h-[3px] bg-contrast mt-6"></span>

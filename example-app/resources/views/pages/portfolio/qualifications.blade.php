@@ -20,7 +20,7 @@
                 <p class="w-full h-[3px] bg-contrast mt-6"></span>
 
                 <div class="mt-5 flex flex-col gap-5">
-                    @foreach($qualifications as $elem)
+                    @foreach(array_reverse($qualifications) as $elem)
                         <div class="shadow-circle rounded-[10px] p-3 font-medium text-[14px] sm:text-[17px] lg:text-[20px] color-contrast sm:flex justify-between">
                             <div class="w-full sm:w-[90%] flex flex-col gap-1">
                                 <div class="flex ">

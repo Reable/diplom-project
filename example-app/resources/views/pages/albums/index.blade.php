@@ -19,8 +19,8 @@
                 @foreach($albums as $album)
                     <a href="{{ route("album_photos_page", $album->id) }}" class="relative h-[310px]">
                         <div class="absolute bottom-0 left-0 shadow-circle rounded-[10px] w-[90%] h-[290px] bg-white z-30">
-                            <img src="{{ asset("storage/$album->path_url")}}" alt="" class="border-2 h-[60%] sm:h-[80%] rounded-t-[10px] object-cover">
-                            <div class="font-semi text-[16px] p-3 sm:pl-5 h-[40%] sm:h-[20%] flex items-center color-contrast">
+                            <img src="{{ asset("storage/$album->path_url")}}" alt="" class="h-[180px] w-full sm:h-[200px] rounded-t-[10px] object-cover">
+                            <div class="font-semi text-xs sm:text-[14px] p-3 sm:pl-5 h-[110px] sm:h-[90px] flex items-center color-contrast">
                                 <p class="">{{ $album->title }}</p>
                             </div>
                         </div>

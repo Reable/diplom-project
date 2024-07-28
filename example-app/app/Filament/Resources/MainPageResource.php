@@ -46,7 +46,14 @@ class MainPageResource extends Resource
                             ->label("Фотографии из галереи")
                             ->helperText('Выберите несколько фотографий из галереи для главной страницы')
                             ->options(function(){
-                                return PhotoGallery::all()->pluck('title', 'path_url');
+                                $photos = PhotoGallery::all();
+                                $data = [];
+
+                                foreach($photos as $photo){
+                                    $data[$photo["path_url"]] = $photo["title"] ? $photo["title"] : "" ;
+                                }
+
+                                return $data;
                             }),
                         Select::make('certificates_ids')
                             ->multiple()

@@ -32,7 +32,7 @@
                                 <p class="w-[100%] sm:w-auto px-9 py-2 shadow-circle rounded-[10px]">
                                     {{ $elem["position"] }}
                                 </p>
-                                <a href="" class="w-[100%] sm:w-auto text-white bg-contrast px-9 py-2 shadow-circle rounded-[10px]">
+                                <a href="{{ route("album_photos_page", $elem["album_id"]) }}" class="w-[100%] sm:w-auto text-white bg-contrast px-9 py-2 shadow-circle rounded-[10px]">
                                     {{ $elem["place_title"] }}
                                 </a>
                             </div>

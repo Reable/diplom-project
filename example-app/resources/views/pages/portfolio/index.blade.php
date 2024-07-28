@@ -27,8 +27,7 @@
                     </div>
                 </div>
                 <div class="">
-                    <p class="color-contrast text-[14px] sm:text-[16px] lg:text-[20px] font-medium"> <span class="font-bold">Имеющаяся квалификационная категория:</span>
-                        <a href="">Высшая квалификационная категория</a>
+                    <p class="color-contrast text-[14px] sm:text-[16px] lg:text-[20px] font-medium"> <span class="font-bold">Имеющаяся квалификационная категория:</span> Высшая
                     </p>
                 </div>
             </div>

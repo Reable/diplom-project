@@ -26,7 +26,7 @@ class CertificatesResource extends Resource
     protected static ?string $model = Certificates::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
-    protected static ?string $label = "Добавление сертификата ";
+    protected static ?string $label = "Сертификаты ";
     protected static ?string $navigationGroup = "Личная информация";
 
     public static function form(Form $form): Form
@@ -42,7 +42,6 @@ class CertificatesResource extends Resource
                             ->required(),
                         FileUpload::make('path_url')
                             ->label("Выберите грамоту или диплом для загрузки на сервер")
-                            ->image()
                             ->directory("certificates")
                             ->required(),
                     ])

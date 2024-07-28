@@ -23,7 +23,7 @@ class PhotoGalleryResource extends Resource
     protected static ?string $model = PhotoGallery::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-photo';
-    protected static ?string $label = "Добавления фотографий ";
+    protected static ?string $label = "Фотографии ";
     protected static ?string $navigationGroup = "Фотогалерея";
 
     public static function form(Form $form): Form
