@@ -109,13 +109,13 @@ trait InteractsWithInfolists
             if ($this->mountedInfolistActionHasForm(mountedAction: $action)) {
                 $action->callBeforeFormValidated();
 
-                $action->formData(
-                    $form->getState(afterValidate: function () use ($action) {
-                        $action->callAfterFormValidated();
+                $form->getState(afterValidate: function (array $state) use ($action) {
+                    $action->callAfterFormValidated();
 
-                        $action->callBefore();
-                    }),
-                );
+                    $action->formData($state);
+
+                    $action->callBefore();
+                });
             } else {
                 $action->callBefore();
             }
@@ -297,7 +297,7 @@ trait InteractsWithInfolists
         );
     }
 
-    public function unmountInfolistAction(bool $shouldCancelParentActions = true): void
+    public function unmountInfolistAction(bool $shouldCancelParentActions = true, bool $shouldCloseModal = true): void
     {
         $action = $this->getMountedInfolistAction();
 
@@ -327,7 +327,9 @@ trait InteractsWithInfolists
             $this->mountedInfolistActionsComponent = null;
             $this->mountedInfolistActionsInfolist = null;
 
-            $this->dispatch('close-modal', id: "{$this->getId()}-infolist-action");
+            if ($shouldCloseModal) {
+                $this->dispatch('close-modal', id: "{$this->getId()}-infolist-action");
+            }
 
             return;
         }

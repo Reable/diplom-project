@@ -28,7 +28,7 @@
                 @endif
             </div>
 
-            <div class="mt-16">
+            <div class="mt-16" id="default">
                 @if(isset($data[2]))
                     <div class="text-left font-bold text-[16px] sm:text-[18px] lg:text-[25px] color-contrast">
                         <h3>Заочная форма</h3>
